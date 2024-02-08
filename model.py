@@ -83,7 +83,8 @@ class SpacyModel(LabelStudioMLBase):
 
     def load(self):
         model_dir = os.path.dirname(os.path.realpath(__file__))
-        fallback_dir = os.path.join(model_dir, "model-best")
+        # fallback_dir = os.path.join(model_dir, "model-best")
+        fallback_dir = "/home/xplr/data-preparation/nlp_projects/data_type_check_ner/nlp_er_model_w_fuzzy_address_patterns"
 
         if PREDICTION_GPU_ID > -1:
             spacy.prefer_gpu(gpu_id=PREDICTION_GPU_ID)
@@ -170,8 +171,8 @@ class SpacyModel(LabelStudioMLBase):
         checkpoint_name = datetime.now().strftime("%Y%m%d%H%M%S")
         checkpoint_dir = os.path.join(
             model_dir, 'checkpoints', checkpoint_name)
-        config_path = os.path.join(model_dir, 'config.cfg')
-
+        # config_path = os.path.join(model_dir, 'config.cfg')
+        config_path = "/home/xplr/insa-codebase/insa-io/io/kie/data_type_check_ner/config.cfg"
         train_data_path = os.path.join(checkpoint_dir, 'train.spacy')
         dev_data_path = os.path.join(checkpoint_dir, 'dev.spacy')
         model_path = os.path.join(checkpoint_dir, 'model-best')
